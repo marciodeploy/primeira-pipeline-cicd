@@ -10,7 +10,7 @@ import (
 func index(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprintf(w, "Aplicacao exemplo - HARDCLOUD - V4.5.0")
+	fmt.Fprintf(w, "Aplicacao exemplo - HARDCLOUD - V4.6.0")
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -27,5 +27,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", index)
+	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe("0.0.0.0:5000", nil))
 }
