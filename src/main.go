@@ -7,17 +7,11 @@ import (
 	"os"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	// Obtém o nome do pod da variável de ambiente
-	podName := os.Getenv("POD_NAME")
-	if podName == "" {
-		podName = "Nome do Pod não encontrado"
-	}
+func index(w http.ResponseWriter, r *http.Request) {
 
-	// Exibe o nome do pod na resposta HTTP
-	fmt.Fprintf(w, "<h1>Nome do Pod: %s</h1>", podName)
+	w.Header().Set("Content-Type", "text/plain")
+	fmt.Fprintf(w, "Aplicacao exemplo - HARDCLOUD - V4.5.0")
 }
-
 
 func main() {
 	http.HandleFunc("/", index)
